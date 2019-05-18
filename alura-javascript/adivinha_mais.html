@@ -1,0 +1,51 @@
+<meta charset="UTF-8">
+
+<input>
+<button>Comparar valor</button>
+
+<script>
+
+    function pulaLinha(){
+        document.write("<br>");
+        document.write("<br>");
+    }
+
+    function mostra(mensagem){
+        document.write(mensagem);
+        pulaLinha();
+    }
+
+    function verifica(){
+        var posicao = 0;
+        var achou = false;
+
+        for(posicao; posicao <= segredos.length; posicao++){
+            if(input.value == segredos[posicao]){
+                alert("Você acertou!");
+                achou = true;
+                break;
+            } 
+        }
+
+        if(achou == false){
+            alert("Você errou...");
+        }
+
+        
+
+        input.value = "";
+        input.focus();
+    }
+
+    var numeroSecreto = Math.round(Math.random() * 10);
+
+    var segredos = [1,2,3];
+
+    var input = document.querySelector("input");
+    input.focus();
+
+    var botao = document.querySelector("button");
+
+    botao.onclick = verifica;
+
+</script>

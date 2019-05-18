@@ -1,0 +1,29 @@
+<meta charset="UTF-8">
+
+<script>
+    
+    function pulaLinha(){
+        document.write("<br>");
+        document.write("<br>");
+    }
+
+    function mostra(frase){
+        document.write(frase);
+        pulaLinha();
+    }
+
+    var limite = parseInt(prompt("Quantos familiares?"));
+
+    var contador = 1;
+    var total = 0;
+    for(contador; contador <= limite; contador++){
+        var idade = parseInt(prompt("Informe a idade do familiar: "));
+        total += idade;
+    }
+
+    var media = total/limite;
+
+    mostra(media);
+    mostra("FIM");
+
+</script>
