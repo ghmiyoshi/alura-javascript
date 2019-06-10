@@ -1,37 +1,50 @@
-var titulo = document.querySelector(".titulo");
+var titulo = document.querySelector(".titulo"); // Seleciona um elemento HTML com a classe .titulo
 
-titulo.textContent = "Gabriel";
+titulo.textContent = "Alura Nutrição"; // Seta o valor para o elemento HTML selecionado
 
+var pacientes = document.querySelectorAll(".paciente"); // Seleciona todos os elementos HTML com a classe .paciente
 
-var paciente = document.querySelector("#primeiro-paciente");
+for(var i = 0; i < pacientes.length; i++){
+    var paciente = pacientes[i];
 
-var peso = paciente.querySelector(".info-peso");
-var peso_paciente = peso.textContent;
+    var tdPeso = paciente.querySelector(".info-peso");
+    var peso_paciente = tdPeso.textContent;
 
-var altura = paciente.querySelector(".info-altura");
-var altura_paciente = altura.textContent;
+    var tdAltura = paciente.querySelector(".info-altura");
+    var altura_paciente = tdAltura.textContent;
 
-var gordura = paciente.querySelector(".info-gordura");
-var gordura_paciente = gordura.textContent;
+    var tdGordura = paciente.querySelector(".info-gordura");
+    var gordura_paciente = tdGordura.textContent;
 
-var peso_valido = true;
-var altura_valida = true;
+    var tdImc = paciente.querySelector(".info-imc");
 
-if(peso_paciente < 0 || peso_paciente > 1000){
-    console.log("Peso inválido!");
-    peso_valido = false;
+    var peso_valido = true;
+    var altura_valida = true;
+
+    if(peso_paciente <= 0 || peso_paciente >= 1000){
+        console.log("Peso inválido!"); // Mensagem no console
+        peso_valido = false;
+        tdPeso.textContent = "Peso inválido!";
+        paciente.classList.add("peso-invalido"); // Adiciona classe de estilização definida no CSS 
+    }
+
+    if(altura_paciente < 0 || altura_paciente > 3.00){
+        console.log("Altura inválida!");
+        altura_valida = false;
+        altura_paciente.textContent = "Altura inválida!";
+    }
+
+    if(peso_valido && altura_valida){
+        var imc = peso_paciente / (altura_paciente * altura_paciente);
+        tdImc.textContent = imc.toFixed(2); // Defini a quantidade de casas decimais após a virgula
+    } else {
+        tdImc.textContent = "Impossível calcular!";
+    }
+
+    console.log(imc);
+
 }
 
-if(altura_paciente < 0 || altura_paciente > 3.00){
-    console.log("Altura inválida!");
-    altura_valida = false;
-}
 
-if(peso_valido && altura_valida){
-    var imc = peso_paciente / (altura_paciente * altura_paciente);
 
-    var imc_html = document.querySelector(".info-imc");
-    imc_html.textContent = imc; 
-}
 
-console.log(imc);
