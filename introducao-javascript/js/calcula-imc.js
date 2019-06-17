@@ -35,8 +35,8 @@ for(var i = 0; i < pacientes.length; i++){
     }
 
     if(peso_valido && altura_valida){
-        var imc = peso_paciente / (altura_paciente * altura_paciente);
-        tdImc.textContent = imc.toFixed(2); // Defini a quantidade de casas decimais após a virgula
+        var imc = calculaImc(peso, altura);
+        tdImc.textContent = imc // Defini a quantidade de casas decimais após a virgula
     } else {
         tdImc.textContent = "Impossível calcular!";
     }
@@ -45,43 +45,14 @@ for(var i = 0; i < pacientes.length; i++){
 
 }
 
-var botaoAdicionar = document.querySelector("#adicionar-paciente");
-    botaoAdicionar.addEventListener("click", function(event){
-        event.preventDefault();
-        console.log("O botão foi clicado");
+function calculaImc(peso, altura){
+    var imc = 0;
+    imc = peso_paciente / (altura_paciente * altura_paciente);
+
+    return imc.toFixed(2);
+}
 
 
-        var form = document.querySelector("#form-adiciona");
-
-        var nome = form.nome.value;
-        var peso = form.peso.value;
-        var altura = form.altura.value;
-        var gordura = form.gordura.value;
-
-        var pacienteTr = document.createElement("tr");
-        var nomeTd = document.createElement("td");
-        var pesoTd = document.createElement("td");
-        var alturaTd = document.createElement("td");
-        var gorduraTd = document.createElement("td");
-
-        nomeTd.textContent = nome;
-        pesoTd.textContent = peso;
-        alturaTd.textContent = altura;
-        gorduraTd.textContent = gordura;
-
-        pacienteTr.appendChild(nomeTd);
-        pacienteTr.appendChild(pesoTd);
-        pacienteTr.appendChild(alturaTd);
-        pacienteTr.appendChild(gorduraTd);
-
-        var tabela = document.querySelector("#tabela-pacientes");
-        tabela.appendChild(pacienteTr);
-
-    });
-
-    titulo.addEventListener("click", function(event){
-        console.log("Fui clicado");
-    });
 
 
 
