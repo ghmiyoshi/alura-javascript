@@ -14,6 +14,12 @@ botaoAdicionar.addEventListener("click", function(event){ // função anônima
     // Cria a tr e td do paciente
     var pacienteTr = montaTr(paciente);
 
+    if(validaPaciente(paciente)){
+        console.log("Paciente válido");
+    } else{
+        return;
+    }
+
     // Adiciona o paciente na tabela        
     var tabela = document.querySelector("#tabela-pacientes");
     tabela.appendChild(pacienteTr);
@@ -51,11 +57,19 @@ function montaTr(paciente){
     return pacienteTr;
 }
 
-    function montaTd(dado, classe){
+function montaTd(dado, classe){
         var td = document.createElement("td");
         td.textContent = dado;
         td.classList.add(classe);
 
         // Retorna a td
         return td;
+}
+
+function validaPaciente(paciente){
+    if(validaPeso(paciente.peso)){
+        return true;
+    } else {
+        return false;
     }
+}
