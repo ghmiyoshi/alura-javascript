@@ -21,6 +21,7 @@ for(var i = 0; i < pacientes.length; i++){
     var peso_valido = validaPeso(peso_paciente);
     var altura_valida = validaAltura(altura_paciente);
 
+    
     if(!peso_valido){
         console.log("Peso inválido!"); // Mensagem no console
         peso_valido = false;
