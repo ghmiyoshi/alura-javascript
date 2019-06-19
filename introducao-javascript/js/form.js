@@ -18,7 +18,7 @@ botaoAdicionar.addEventListener("click", function(event){ // função anônima
     var tabela = document.querySelector("#tabela-pacientes");
     tabela.appendChild(pacienteTr);
 
-    // Limpa o form após adicionar um paciente
+    // Limpa o form após adicionar um paciente 
     form.reset();
 
 });
