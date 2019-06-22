@@ -14,9 +14,11 @@ botaoAdicionar.addEventListener("click", function(event){ // função anônima
     // Cria a tr e td do paciente
     var pacienteTr = montaTr(paciente);
 
-    if(validaPaciente(paciente)){
-        console.log("Paciente válido");
-    } else{
+    var erros = validaPaciente(paciente);
+    console.log(erros);
+
+    if(erros.length > 0){
+        exibeMensagensDeErro(erros);
         return;
     }
 
@@ -67,9 +69,25 @@ function montaTd(dado, classe){
 }
 
 function validaPaciente(paciente){
-    if(validaPeso(paciente.peso)){
-        return true;
-    } else {
-        return false;
-    }
+    var erros = [];
+
+
+    if(!validaPeso(paciente.peso)) erros.push("Peso inválido");
+
+    if(!validaAltura(paciente.altura)) erros.push("Altura inválida");
+    
+
+    return erros;
+}
+
+function exibeMensagensDeErro(erros) {
+    var ul = document.querySelector("#mensagens-erro");
+
+    erros.forEach(function(erro) {
+        var li = document.createElement("li");
+        li.textContent = erro;
+        ul.appendChild(li);
+
+    });
+
 }
