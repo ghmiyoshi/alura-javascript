@@ -26,13 +26,14 @@ for(var i = 0; i < pacientes.length; i++){
         console.log("Peso inválido!"); // Mensagem no console
         peso_valido = false;
         tdPeso.textContent = "Peso inválido!";
-        paciente.classList.add("peso-invalido"); // Adiciona classe de estilização definida no CSS 
+        paciente.classList.add("paciente-invalido"); // Adiciona classe de estilização definida no CSS 
     }
 
     if(!altura_valida){
         console.log("Altura inválida!");
         altura_valida = false;
         altura_paciente.textContent = "Altura inválida!";
+        paciente.classList.add("paciente-invalido");
     }
 
     if(peso_valido && altura_valida){

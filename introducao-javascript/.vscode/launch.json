@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "C:/Users/Gabriel%20Hideki/git/logica/introducao-javascript/index.html",
+            "url": "file:///home/gabriel/alura-javascript/introducao-javascript/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]
